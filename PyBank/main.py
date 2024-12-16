@@ -71,3 +71,11 @@ with open("analysis/PyBankAnalysis.txt", "w") as txt_file:
    txt_file.write(f"Average Change: ${roundedAvgChange}\n")
    txt_file.write(f"Greatest Increase in Profits: {greatest_increase[0]} (${greatest_increase[1]})\n")
    txt_file.write(f"Greatest Decrease in Profits: {greatest_dec[0]} (${greatest_dec[1]})\n")
+#print results
+   print("Financial Analysis")
+   print("----------------------------")
+   print(f"Total Months: {total_months}")
+   print(f"Total: ${net_pl}")
+   print(f"Average Change: ${roundedAvgChange}")
+   print(f"Greatest Increase in Profits: {greatest_increase[0]} (${greatest_increase[1]})")
+   print(f"Greatest Decrease in Profits: {greatest_dec[0]} (${greatest_dec[1]})")
