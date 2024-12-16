@@ -11,13 +11,14 @@ files_to_output = os.path.join("analysis", "election_analysis.txt")
 
 # variables:
 total_votes = 0
+# dictionaries:
 candidate_votes = {}
 PercentVote = {}
+#Winning Candidate Tracker:
 winningVotes = 0
 winningCand = ""
 
-
-
+# Open the CSV file and process it
 with open(file_to_load) as election_data:
     reader = csv.reader(election_data)
 
@@ -28,6 +29,9 @@ with open(file_to_load) as election_data:
     for row in reader:
         total_votes += 1
 #A complete list of candidates who received votes
+# if - Get the candidate's name from the row
+# else - If the candidate is not already in the candidate list, add them
+# Add a vote to the candidate's count 
         candidate = row[2]
         if candidate in candidate_votes:
             candidate_votes[candidate] += 1

@@ -12,7 +12,7 @@ import os
 files_to_load = os.path.join("Resources", "budget_data.csv")
 files_to_output = os.path.join("analysis", "budget_analysis.txt")
 
-#Define variables and set them to 0
+#Define variables and set them up
 total_months = 0
 net_pl = 0
 greatest_increase = ["",0]
@@ -33,7 +33,7 @@ with open(files_to_load) as financial_data:
     #skip header row, 'next' allows you to go to the next row.
     header = next(reader)
 
-    #extract 1st non-header row
+    #Extract first row to avoid appending to net_change_list
     firstrow = next(reader)
     total_months += 1
     net_pl = net_pl + int(firstrow[1])
@@ -49,9 +49,10 @@ with open(files_to_load) as financial_data:
        change = int(row[1]) - (followingrow_pl)
        followingrow_pl = int(row[1])
        totalchange.append(change)
+       #calculate average change
        avgchange = sum(totalchange)/(total_months -1)
        roundedAvgChange = round(avgchange, 2)
-#calc avg change
+
       # Calculate the greatest increase in profits (month and amount)
        if change > int(greatest_increase[1]):
          greatest_increase[0] = row[0]
